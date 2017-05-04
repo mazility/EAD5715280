@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 2, 2017 8:54:20 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.pojo.Employee" table="employee" catalog="company" optimistic-lock="version">
+        <id name="eid" type="int">
+            <column name="EID" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="45" not-null="true" />
+        </property>
+        <property name="position" type="string">
+            <column name="POSITION" length="45" not-null="true" />
+        </property>
+        <property name="salary" type="int">
+            <column name="SALARY" not-null="true" />
+        </property>
+        <one-to-one name="employeeSkill" class="model.pojo.EmployeeSkill"></one-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 2, 2017 8:54:20 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.pojo.EmployeeSkill" table="employee_skill" catalog="company" optimistic-lock="version">
+        <id name="esid" type="int">
+            <column name="ESID" />
+            <generator class="foreign">
+                <param name="property">employee</param>
+            </generator>
+        </id>
+        <one-to-one name="employee" class="model.pojo.Employee" constrained="true"></one-to-one>
+        <many-to-one name="skill" class="model.pojo.Skill" fetch="select">
+            <column name="EID" not-null="true" />
+        </many-to-one>
+        <property name="sid" type="int">
+            <column name="SID" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
